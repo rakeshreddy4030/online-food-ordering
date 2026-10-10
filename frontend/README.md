@@ -24,22 +24,18 @@ React (Vite) version of the plain HTML/JS frontend. It talks to the Spring Boot 
 
 Admin login: admin@food.com / admin123
 
-## Deploy (Render backend + Netlify frontend)
+## Deploy (Render backend + Vercel frontend)
 1. Open `.env.production` and put your Render URL:
    ```
    VITE_API_URL=https://your-backend.onrender.com
    ```
    (no trailing slash)
-2. Build:
-   ```
-   npm run build
-   ```
-3. Drag and drop the **`dist`** folder to https://app.netlify.com (Sites -> drag and drop).
-4. Add your Netlify URL (https://your-site.netlify.app) to the allowed origins in the
+2. Import the `frontend` folder into Vercel and use the default Vite build settings.
+3. Add your Vercel URL (https://your-site.vercel.app) to the allowed origins in the
    backend `SecurityConfig.java`, push to GitHub, and let Render redeploy.
 
-The file `public/_redirects` is already included so that refreshing a page like `/menu`
-works on Netlify.
+The repo includes `vercel.json` so that React Router paths like `/menu` keep working
+when refreshed on Vercel.
 
 ## Project structure
 ```
