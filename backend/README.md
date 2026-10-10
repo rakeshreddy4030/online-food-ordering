@@ -29,4 +29,4 @@ Configure `.env` before starting the container. Set `DBURL` to a MySQL address r
 - POST /api/orders, GET /api/orders/my
 - Admin: /api/restaurants, /api/foods, /api/orders/admin/*
 
-CORS allows the frontend on http://localhost:* and http://127.0.0.1:*.
+CORS allows the deployed frontend at https://online-food-ordering-flax.vercel.app and local development servers on http://localhost:* and http://127.0.0.1:*.

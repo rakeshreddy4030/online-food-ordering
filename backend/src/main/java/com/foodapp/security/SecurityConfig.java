@@ -43,10 +43,11 @@ public class SecurityConfig {
         return http.build();
     }
 
-    /** Lets the separate frontend (Live Server on localhost:5500 etc.) call this API from the browser. */
+    /** Allows the deployed frontend and local development servers to call this API. */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of("https://online-food-ordering-flax.vercel.app"));
         config.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
