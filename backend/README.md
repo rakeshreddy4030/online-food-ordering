@@ -12,6 +12,16 @@ REST API only. The web pages are in a separate repo: `food-ordering-frontend`.
 The database `food_ordering_v2_db` and all tables are created automatically.
 Default admin: admin@food.com / admin123. Sample restaurants and food are added on first run.
 
+## Docker
+Build and run from this directory:
+
+```sh
+docker build -t food-ordering:latest .
+docker run -d --name food-ordering -p 8080:8080 --env-file .env food-ordering:latest
+```
+
+Configure `.env` before starting the container. Set `DBURL` to a MySQL address reachable from inside the container; `localhost` refers to the container itself, not the host machine. The image does not include `.env` or credentials. The API is available at http://localhost:8080.
+
 ## Main endpoints
 - POST /api/auth/register, POST /api/auth/login
 - GET /api/restaurants, GET /api/restaurants/{id}/foods
